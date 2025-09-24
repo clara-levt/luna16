@@ -1,0 +1,9 @@
+# Ignore virtual environment folder
+venv/
+
+# Ignore specific Jupyter notebook
+linh_tinh.ipynb
+
+# ignore subset in data
+data/subset0/
+__pycache__
