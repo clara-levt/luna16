@@ -49,6 +49,7 @@ class LunaTrainingApp:
             default=1,
             type=int,
         )
+        # True if --balanced flag is provided when calling the LunaTrainningApp
         parser.add_argument('--balanced',
             help="Balance the training data to half positive, half negative.",
             action='store_true',
@@ -138,7 +139,9 @@ class LunaTrainingApp:
         train_ds = LunaDataset(
             val_stride=10,
             isValSet_bool=False,
-            ratio_int=int(self.cli_args.balanced),
+            # if --balanced is provided, then the value of self.cli_args.balanced = True then True is translated to 1
+            # while named ratio_int, it only take value of 0 or 1
+            ratio_int=int(self.cli_args.balanced), 
             augmentation_dict=self.augmentation_dict,
         )
 
